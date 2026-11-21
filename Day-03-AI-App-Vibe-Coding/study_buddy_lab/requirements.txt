@@ -1,0 +1,13 @@
+# Packages that Study Buddy needs to run.
+# Docker and the cloud server install exactly this list.
+fastapi[standard]>=0.115   # web framework + uvicorn server + file uploads + test client
+python-dotenv>=1.0         # reads the .env file
+google-genai>=1.0          # talks to Google Gemini
+pydantic>=2.7              # checks request data and AI JSON output
+scikit-learn>=1.5          # TF-IDF search over the documents
+pandas>=2.2                # reads CSV files
+matplotlib>=3.8            # draws the chart
+pypdf>=4.0                 # reads text from PDF files
+pillow>=10.0               # opens images (OCR feature)
+pytesseract>=0.3.10        # OCR (optional feature, needs the Tesseract program)
+pytest>=8.0                # automated tests

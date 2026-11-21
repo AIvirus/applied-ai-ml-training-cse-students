@@ -1,0 +1,39 @@
+# GitHub Actions workflow (Day 4, Lesson 08)
+# Runs automatically on every push and pull request:
+#   1. installs the packages and runs the tests (in mock mode, so no API key is needed)
+#   2. if the tests pass, checks that the Docker image still builds
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Install Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install packages
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: pytest -v
+        env:
+          MOCK_MODE: "true"
+
+  docker-build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Build the Docker image
+        run: docker build -t study-buddy .

@@ -1,0 +1,11 @@
+# compose.yaml - start Study Buddy with one command:  docker compose up --build
+# (Day 4, Lesson 06). Compose is most useful when an app has several parts,
+# for example an app + a database. Here we have one part, to learn the idea.
+services:
+  study-buddy:
+    build: .
+    ports:
+      - "8000:8000"        # your computer's port 8000 -> the container's port 8000
+    env_file:
+      - .env               # GEMINI_API_KEY and other settings (never copied into the image)
+    restart: unless-stopped

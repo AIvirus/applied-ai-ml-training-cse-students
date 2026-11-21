@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Buddy</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>Study Buddy</h1>
+    <p>Your AI learning and research assistant</p>
+    <p id="status" class="status">Checking the server...</p>
+  </header>
+
+  <main>
+    <!-- 1. Documents -->
+    <section class="card">
+      <h2>1. Upload your notes</h2>
+      <p class="hint">.txt, .md or .pdf, up to 2 MB</p>
+      <form id="upload-form">
+        <input type="file" id="doc-file" accept=".txt,.md,.pdf" required>
+        <button type="submit">Upload</button>
+      </form>
+      <ul id="doc-list"></ul>
+      <button id="clear-docs" class="secondary">Remove all documents</button>
+      <p id="upload-result" class="result"></p>
+    </section>
+
+    <!-- 2. Ask -->
+    <section class="card">
+      <h2>2. Ask a question</h2>
+      <form id="ask-form">
+        <input type="text" id="question" placeholder="For example: What is the fine for a late book?" minlength="3" maxlength="500" required>
+        <button type="submit">Ask</button>
+      </form>
+      <div id="answer" class="result"></div>
+      <details>
+        <summary>Sources used</summary>
+        <ul id="sources"></ul>
+      </details>
+    </section>
+
+    <!-- 3. Summary and practice -->
+    <section class="card">
+      <h2>3. Summary and practice questions</h2>
+      <button id="summary-btn">Summarise all notes</button>
+      <button id="practice-btn">Make 5 practice questions</button>
+      <div id="study-result" class="result"></div>
+    </section>
+
+    <!-- 4. CSV -->
+    <section class="card">
+      <h2>4. CSV insights and chart</h2>
+      <form id="csv-form">
+        <input type="file" id="csv-file" accept=".csv" required>
+        <input type="text" id="csv-column" placeholder="Column to chart (optional)">
+        <button type="submit">Analyse</button>
+      </form>
+      <div id="csv-result" class="result"></div>
+      <img id="csv-chart" alt="Chart of the selected column" hidden>
+    </section>
+
+    <!-- 5. Optional: OCR -->
+    <section class="card optional">
+      <h2>5. Optional: read text from an image (OCR)</h2>
+      <form id="ocr-form">
+        <input type="file" id="ocr-file" accept=".png,.jpg,.jpeg" required>
+        <label><input type="checkbox" id="ocr-add"> Add the text to my documents</label>
+        <button type="submit">Read text</button>
+      </form>
+      <pre id="ocr-result" class="result"></pre>
+    </section>
+
+    <!-- 6. Optional: agent -->
+    <section class="card optional">
+      <h2>6. Optional: research agent</h2>
+      <form id="agent-form">
+        <input type="text" id="goal" placeholder="For example: Find the late fee rule and calculate it for 3 books, 4 days late" minlength="3" maxlength="500" required>
+        <button type="submit">Run agent</button>
+      </form>
+      <ol id="agent-steps"></ol>
+      <div id="agent-result" class="result"></div>
+    </section>
+  </main>
+
+  <footer>AI answers can be wrong. Always check important facts in your own notes.</footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>

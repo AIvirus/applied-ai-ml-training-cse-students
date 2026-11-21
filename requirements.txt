@@ -1,0 +1,27 @@
+# Python packages for the whole 4-day course.
+# Install them ONE time with:   pip install -r requirements.txt
+# Run that command from the main course folder, with your virtual environment switched on.
+# Recommended Python version: 3.12 (3.11 and 3.13 also work).
+
+# --- Day 1: data and classical machine learning ---
+numpy>=1.26            # fast maths with lists of numbers (vectors and matrices)
+pandas>=2.2            # tables of data (like Excel inside Python)
+matplotlib>=3.8        # charts and graphs
+scikit-learn>=1.5      # ready-made machine learning algorithms
+
+# --- Jupyter notebooks (used on Day 1 and Day 2) ---
+ipykernel>=6.29        # lets VS Code run notebooks with this environment
+# Want to open notebooks in the web browser instead of VS Code? Also run:  pip install notebook
+# --- Day 2: NLP, computer vision and generative AI ---
+nltk>=3.9              # Natural Language Processing toolkit
+opencv-python>=4.10    # Computer Vision (images and video)
+pillow>=10.0           # opens and saves image files
+google-genai>=1.0      # official Python library to talk to Google Gemini (an LLM)
+python-dotenv>=1.0     # reads your private .env file (where the API key lives)
+pydantic>=2.7          # checks that data (like AI answers) has the right shape
+
+# --- Day 3 and Day 4: the Study Buddy web application ---
+fastapi[standard]>=0.115  # web framework for our API, includes the uvicorn server
+pypdf>=4.0             # reads text from PDF files
+pytesseract>=0.3.10    # OCR (reads text from images). Optional, needs Tesseract installed.
+pytest>=8.0            # runs automated tests

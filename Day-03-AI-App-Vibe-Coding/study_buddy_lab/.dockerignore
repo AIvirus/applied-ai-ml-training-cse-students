@@ -1,0 +1,11 @@
+# Files Docker must NOT copy into the image
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.git/
+.github/
+tests/
+sample_files/

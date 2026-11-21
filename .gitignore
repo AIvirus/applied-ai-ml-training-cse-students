@@ -1,0 +1,22 @@
+# Secrets: never upload these
+.env
+*.env
+!.env.example
+
+# Python environment and caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Files the apps create while running
+uploads/
+storage/
+*.db
+
+# Editor and system files
+.vscode/
+.DS_Store
+Thumbs.db
